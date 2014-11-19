@@ -1,0 +1,8 @@
+<div class="alert alert-warning" role="alert">
+<h4><%= comentario.nome %> diz: </h4>
+<%= simple_format comentario.corpo %>
+Há <%= time_ago_in_words comentario.created_at %> atrás
+<%= link_to "Destroy", comentario_path(comentario), method: :delete, confirm: "Tem certeza disso?" %>
+</div>
+
+

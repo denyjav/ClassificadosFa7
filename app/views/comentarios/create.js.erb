@@ -1,0 +1,7 @@
+<% if @comentario.errors.empty? %>
+	$('#comentarios').append('<%=j render(@comentario) %>');
+	$('#new_comentario')[0].reset();
+	alert('Comentario foi criado com sucesso!');
+<% else %>
+	alert('Preencha todos os campos para criar o comentario!');
+<% end %>

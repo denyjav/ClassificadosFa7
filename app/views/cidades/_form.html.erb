@@ -1,0 +1,25 @@
+<%= form_for(@cidade) do |f| %>
+  <% if @cidade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cidade.errors.count, "error") %> prohibited this cidade from being saved:</h2>
+
+      <ul>
+      <% @cidade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cep %><br>
+    <%= f.text_field :cep %>
+  </div>
+  <div class="field">
+    <%= f.label :bairro %><br>
+    <%= f.text_field :bairro %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

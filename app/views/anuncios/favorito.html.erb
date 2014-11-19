@@ -1,0 +1,13 @@
+<h1>Anúncios mais vistos</h1>
+
+<table>
+<tr>
+<%= render @anuncios %>
+</tr>
+</table>
+<%= will_paginate @anuncios %> 
+<br>
+</br></br></br>
+<%= link_to 'Cadastrar Anúncio', new_anuncio_path %>
+| <%= link_to 'Todos os Anúncios', anuncios_path %>
+</br> </br><%= link_to 'Criar conta', users_path %>

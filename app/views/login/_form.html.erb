@@ -1,0 +1,25 @@
+
+<%= form_for(User.new, url: users_login_path) do |f| %>
+  <% if alert %>
+    <p class="alert alert-error">
+        <%= alert %>
+    </p>
+    <% end %>
+
+    <h3>Já sou cadastrado!</h3>
+    <h4>Faça login informando email e senha </h4></br>
+
+    <div class="field">
+    <label> Email </label><br>
+    <%= f.text_field :email %>
+    </div>
+    <div class="field">
+    <%= f.label :Senha%><br>
+    <%= f.password_field :password %><br>
+    </div>
+    <div class="actions">
+    <%= f.submit "Login" %>
+    </div>
+
+
+<% end %>

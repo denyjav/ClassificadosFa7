@@ -1,0 +1,57 @@
+<div class="container-fluid col-md-3 col-md-push-1">
+	
+
+</div>
+
+<div class="container-fluid col-md-9 col-md-push-1">
+<div class="panel panel-default">
+  <div class="panel-heading"></div>
+  <div class="panel-body col-md-12">
+  		<div class="form-group col-md-9">
+
+
+			<%= form_tag('meus', method: 'post') do %>
+  				<%= label_tag(:filtro, "Busca por palavra-chave:") %>
+  				<%= text_field_tag(:filtro) %>
+  				
+			
+
+
+  			</div>
+  			<div class="col-md-2">
+				<%= submit_tag("Procurar") %>
+  			</button>
+  			</div>
+        <% end %>
+  </div>
+ <table class="table  table-striped">
+  <thead>
+    <tr>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @anuncios.size != 0 %>
+      <% @anuncios.each do |anuncio| %>
+        <tr>
+          <td><a href="/anuncio/anuncio.id" class="img-thumbnail" >
+          <%= image_tag anuncio.imagem.url(:thumb) %></a><td>
+          <td><%= anuncio.titulo %></td>
+          <td>R$ <%= anuncio.preco %></td>
+           <td><%= link_to 'Ver anúncio', anuncio %></td>
+          <td><%= link_to 'Edit', edit_anuncio_path(anuncio) %></td>
+          <td><%= link_to 'Destroy', anuncio, method: :delete, data: { confirm: 'Você tem certeza que quer excluir o anúncio?' } %></td> 
+        </tr>
+      <% end %>
+      <% else %>
+      <h4><br />Nenhum anuncio encontrado!</h4>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'Quer anunciar?', new_anuncio_path %>
+<%= link_to 'Mais vistos',root_path %>
+</div>

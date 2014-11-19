@@ -1,0 +1,11 @@
+<h3><%= anuncio_titulo anuncio %></h3>
+
+<%= simple_format anuncio.descricao %>
+<p>
+	<%= pluralize(anuncio.comentarios.size, "comentario")%> |
+	<%= link_to 'Show', anuncio %> |
+		<% if current_user == anuncio.user %> 
+	     | <%= link_to 'Editar', edit_anuncio_path(anuncio) %> 
+         | <%= link_to 'Destroy', anuncio, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+</p>

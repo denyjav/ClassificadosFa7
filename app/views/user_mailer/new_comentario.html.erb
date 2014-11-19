@@ -1,0 +1,11 @@
+<h1> Olá <%= @user.nome %>,</h1>
+
+<p> Você tem um novo comentario sobre seu anuncio: <%= @anuncio.titulo %> </p>
+
+<p>
+	<em>Nome</em>: <%= @comentario.nome %>
+	<em>Corpo</em>: <% @comentario.corpo %>
+</p>
+
+<p>Você pode ver todos os comentario deste anuncio em <%= anuncio_url(@anuncio) %>.</p>
+<p>Obrigado!</p>

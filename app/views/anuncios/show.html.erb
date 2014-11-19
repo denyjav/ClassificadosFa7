@@ -1,0 +1,36 @@
+
+<div class="margem-top col-md-12">
+	<div class="panel panel-default">
+	  <div class="panel-body" style="margin-left:20%">
+	   <h2><%= @anuncio.titulo %>
+	   	<span class="label label-warning">R$ <%= @anuncio.preco%></span>
+	   </h2>
+	   
+
+		<p><%= image_tag @anuncio.imagem.url(:medium) %></p>
+
+		<p>
+		<h3>Descricao</h3>
+			<h4><%= simple_format @anuncio.descricao %></h4>
+		</p>
+	  </div>
+	</div>
+
+</div>
+
+<h2>Deixe um novo comentário</h2>
+<%= render "comentarios/form"%>
+<h3>Comentários</h3>
+<%= render @anuncio.comentarios %>
+
+
+
+
+<p>
+  <%= pluralize(@anuncio.comentarios.size, "comentario") %>
+  <% if current_user == @anuncio.user %>
+    <%= link_to 'Editar', edit_anuncio_path(@anuncio) %> |
+  <% end %>
+  <%= link_to 'Voltar', anuncios_path %>
+</p>
+

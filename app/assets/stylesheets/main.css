@@ -1,0 +1,59 @@
+body {
+background-size: 200px 200px;
+background-color: #C0CCCC ;
+font-family: Trebuchet MS,Verdana,Arial,Helvetica,sans-serif;
+font-size: 12px;
+
+} 
+.tudo{
+margin: 0 auto;
+width: 70%;
+}
+
+.to-right{
+float: right;
+}
+
+.navegacao{
+font-weight: bold;
+background-color: #FAEBCC;
+text-align: center;
+padding: 4px;
+text-transform: uppercase;
+width: 100%;
+}
+
+.navegacao .anunciar{
+float: right;
+}
+
+.banner{
+	width: 700px;
+}
+
+header{
+margin: auto;
+width: 70%;
+
+}
+
+.login {
+	margin-left: 8%;
+}
+.rodape{
+padding-top: 5px;
+background-color: #FAEBCC;
+}
+.conteudo{
+background-color: #ffffff;
+min-height: 800px;
+
+}
+
+.margem-top{
+	margin-top: 70px;
+}
+
+.principal{
+	margin-bottom: 70px;
+}

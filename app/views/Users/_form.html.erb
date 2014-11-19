@@ -1,0 +1,38 @@
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@anuncio.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <h3>Não possue cadastro?</h3>
+  <h4>Preencha os campos a seguir e pronto!</h4>
+
+  <div class="field ">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :senha%><br>
+    <%= f.password_field :password %><br>
+  </div>
+ <div class="field">
+    <%= f.label :confirme_a_senha%><br>
+    <%= f.password_field :confirma_password %><br>
+  </div>
+  <div class="actions">
+    <%= f.submit  %>
+  </div>
+<% end %>

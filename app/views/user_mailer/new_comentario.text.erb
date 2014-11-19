@@ -1,0 +1,6 @@
+Olá <%= @user.nome %>,
+Você tem um novo comentario sobre seu anuncio: <%= @anuncio.titulo %> 
+Nome: <%= @comentario.nome %>
+Corpo: <% @comentario.corpo %>
+Você pode ver todos os comentario deste anuncio em <%= anuncio_url(@anuncio) %>.
+Obrigado!

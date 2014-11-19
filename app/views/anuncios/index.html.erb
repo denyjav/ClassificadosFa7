@@ -1,0 +1,80 @@
+<%=link_to "Meus Anuncios", meuanuncio_path %> </p>
+
+
+<div class="container-fluid margem-top col-md-4">
+	<div class="panel panel-warning">
+	  <div class="panel-heading">Categorias</div>
+			  <ul class="list-group">
+					    <li class="list-group-item"><%= link_to "Celulares", controller: "anuncios", action: "categoria", categoria: "celulares" %></li>
+					    <li class="list-group-item"><%= link_to "Eletrodemésticos", controller: "anuncios", action: "categoria", categoria: "eletrodomesticos" %></li>
+					    <li class="list-group-item"><%= link_to "Automóveis", controller: "anuncios", action: "categoria", categoria: "automoveis" %>
+					</li>
+					    <li class="list-group-item"><%= link_to "Imóveis", controller: "anuncios", action: "categoria", categoria: "imoveis" %>
+					</li>
+					    <li class="list-group-item"><%= link_to "Variedades", controller: "anuncios", action: "categoria", categoria: "variedades" %>
+					</li>
+					    <li class="list-group-item"><%= link_to "Moda e Beleza", controller: "anuncios", action: "categoria", categoria: "moda" %>
+					</li>
+					    <li class="list-group-item"><%= link_to "Esportes", controller: "anuncios", action: "categoria", categoria: "esportes" %>
+					</li>
+					    <li class="list-group-item"><%= link_to "Animais", controller: "anuncios", action: "categoria", categoria: "animais" %>
+					</li>
+					    <li class="list-group-item"><%= link_to "Informática", controller: "anuncios", action: "categoria", categoria: "informatica" %>
+					</li>
+					    <li class="list-group-item"><%= link_to "Música", controller: "anuncios", action: "categoria", categoria: "musica" %>
+					</li>
+					    <li class="list-group-item"><%= link_to "Empregos e Negócios", controller: "anuncios", action: "categoria", categoria: "empregos" %>
+					</li>
+			  </ul>
+			
+				
+
+	</div>
+</div>
+
+<div class="container-fluid margem-top col-md-8">
+		<div class="panel panel-warning">
+		  <div class="panel-heading"><h3>Todos os anúncios</h3></div>
+		  <div class="panel-body col-md-12">
+		  		<div class="form-group col-md-9">
+					<%= form_tag("busca", method: "post") do %>
+		  				<%= label_tag(:filtro, "Busca:") %>
+		  				<%= text_field_tag(:filtro) %> 				
+		  			</div>
+		  			<div class="col-md-3">
+						<%= submit_tag("Procurar")%>
+		  			</button>
+		  			</div>
+		        <% end %>
+		  </div>
+			 <table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th colspan="4"></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <% @anuncios.each do |anuncio| %>
+			      <tr>
+			        <td><a href="/anuncio/" class="img-thumbnail" >
+			        <%= image_tag anuncio.imagem.url(:thumb) %></a><td>
+			        <td><%= anuncio.titulo %></td>
+			        <td>R$ <%= anuncio.preco %></td>
+			         <td><%= link_to 'Ver anúncio', anuncio %></td>
+			         <% if current_user == anuncio.user %>
+			          <td><%= link_to 'Edit', edit_anuncio_path(anuncio) %></td>
+			          <td><%= link_to 'Destroy', anuncio, method: :delete, data: { confirm: 'Você tem certeza que quer excluir 
+			            o anúncio?' } %></td> 
+			          <% end %>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+		<br>
+		<ul class="pagination">
+		<%= will_paginate @anuncios %>
+		</ul>
+		<%= link_to 'Quer anunciar?', new_anuncio_path %>
+		<%= link_to 'Mais vistos',favoritos_path %>
+</div>
